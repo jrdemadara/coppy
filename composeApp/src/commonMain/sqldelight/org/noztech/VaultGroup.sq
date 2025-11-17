@@ -1,0 +1,25 @@
+CREATE TABLE VaultGroup (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    createdAt TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
+);
+
+insertGroup:
+INSERT INTO VaultGroup (name)
+VALUES (?);
+
+updateGroup:
+UPDATE VaultGroup
+SET name = ?
+WHERE id = ?;
+
+deleteGroupById:
+DELETE FROM VaultGroup
+WHERE id = ?;
+
+getGroupById:
+SELECT * FROM VaultGroup
+WHERE id = ?;
+
+getGroups:
+SELECT * FROM VaultGroup;
